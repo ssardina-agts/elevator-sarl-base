@@ -1,0 +1,19 @@
+/** 
+ * 
+ */
+package au.edu.rmit.agtgrp.elevatorsim.sarlctrl.events
+
+/** 
+ * @author ssardina
+ * 
+ */
+event CommEvent
+
+
+event ReportTravelToFloor extends CommEvent {
+	val car : int
+
+	new(car : int) {
+		this.car = car;
+	}
+}

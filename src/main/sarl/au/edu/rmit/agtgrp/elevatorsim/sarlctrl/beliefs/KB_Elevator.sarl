@@ -1,0 +1,124 @@
+/** 
+ * SARL-Prolog-Elevator - Elevator controller for the SARL Elevator
+ * Simulator with Prolog-based theoretical reasoning capabilities
+ * Copyright (C) 2017-2018 Matthew McNally & Sebastian Sardina.
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package au.edu.rmit.agtgrp.elevatorsim.sarlctrl.beliefs
+
+import io.sarl.core.Logging
+
+import io.sarl.extras.SWI_KB_Prolog
+
+import org.apache.commons.lang3.tuple.Pair
+import org.apache.commons.lang3.tuple.MutablePair;
+
+import java.util.Map
+
+import org.jpl7.Term
+
+import au.edu.rmit.agtgrp.elevatorsim.Direction
+import java.util.Set
+import java.util.HashSet
+
+/** 
+ * @author ssardina
+ * 
+ */
+capacity KB_Elevator {
+	def kb_load(file : String)
+	def kb_dump() 
+
+	def kb_registerCarRequest(floor : int, dir : String)
+	def kb_registerFloorRequest(floor : int)
+	def kb_unRegisterCarRequest(floor : int, dir : String)
+
+	def kb_registerFloorArrived(car: int, floor : int, id: int)
+
+
+	def kb_getNextJob() : Pair<Integer, Direction>
+	def kb_getPendingFloors : Set<Integer>
+	
+}
+
+skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
+//	uses Logging
+
+	val logging_level : int
+	
+	new (l : int = 0, name : String) {
+		super(name) // Call the super's constructor
+		logging_level = l
+//		setLogLevel(l)
+	}
+
+	def kb_registerCarRequest(floor : int, dir : String) {
+		assertFirst("open_car_request(@I, @A)", floor, dir)
+	}
+
+	def kb_unRegisterCarRequest(floor : int, dir : String) {
+		  retractAll("open_car_request(@I, @A)", floor, dir)
+	}
+
+	def kb_registerFloorRequest(floor : int) {
+		assertFirst("open_floor_request(@I)", floor)
+	}
+
+	def kb_registerFloorArrived(car : int, floor : int, id: int) {
+		assertFirst("car_arrived(@I, @I, @I)", car, floor, id)
+	}
+
+
+	def kb_getNextJob() : Pair<Integer, Direction> {
+		// http://gangmax.me/blog/2017/10/10/how-to-return-multiple-values-from-a-java-method/
+		// Query to reset active job to new job
+		// when it becomes available
+	
+		val nextJobQuery = "next_job(Destination, Direction),
+										active_job(_ <- Destination, _ <- Direction),
+										retractall(open_floor_request(Destination)),
+										retractall(open_car_request(Destination, Direction))"
+
+		var solution : Map<String, Term>
+		do {
+			solution = askOnce(nextJobQuery, #["Destination", "Direction"])
+		} while (solution === null)
+		
+		val destination = solution.get("Destination").intValue
+		val direction = Direction.getDirection(solution.get("Direction").toString)
+		val job : Pair<Integer, Direction> = new MutablePair<Integer, Direction>(destination, direction)
+
+		return job
+	}
+
+	def kb_load(file : String) {
+		consult_file(file)
+	}
+
+	def kb_dump() {
+		dump_kb()
+	}
+	
+	def kb_getPendingFloors : Set<Integer> {
+		val solutions = askForAllSolutions("open_car_request(Floor, Direction)", #["Floor"])
+		
+		val set = new HashSet<Integer>
+		for (sol : solutions) {
+			set.add(sol.get("Floor").intValue)
+		}
+		return set
+	}
+	
+}
