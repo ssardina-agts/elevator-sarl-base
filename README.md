@@ -53,8 +53,7 @@ The SWI Prolog version has two important files:
 
 ## RUNNING IT
 
-From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots
-up the desired agent:
+From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots up the desired agent:
 
 * The controller agent to boot is given as a program argument argument, for example, `DummyMultiCarController`
 * If using the SWI Prolog controller:
@@ -98,7 +97,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/swi-prolog/lib/amd64/
 This can be done by executing `source set-swi-env.bash`
 
 
-
+Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
 		
 		
 
@@ -144,3 +143,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
