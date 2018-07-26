@@ -20,18 +20,20 @@ Two dummy controllers, one using SWI Prolog, are provided.
 	* Version tested: 0.6.1, 0.7.2.
 	* Obtained with Maven automatically from http://mvnrepository.com/artifact/io.sarl.maven).
 * [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw):
-	* JAR file needs to be obtained from [Download](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) section (for the corresponding SARL version) and install it (see instructions below)
+	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw).
+	* JAR file can also be manually obtained from [Download](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) section (for the corresponding SARL version) and install it (see instructions below). For example:
 
 		```
-		mvn install:install-file -Dfile=sarl-elevatorsim-mw-1.0.0.7.2.jar -DgroupId=rmit.agtgrp.sarl -DartifactId=sarl-elevatorsim-mw -Dversion=1.0.0.7.2 -Dpackaging=jar
+		mvn install:install-file -Dfile=sarl-elevatorsim-mw-1.1.0.7.2.jar -DgroupId=rmit.agtgrp.sarl -DartifactId=sarl-elevatorsim-mw -Dversion=1.1.0.7.2 -Dpackaging=jar
 		```
 
-		This will install the JAR file in the local maven repo in `rmit/agtgrp/sarl/sarl-elevatorsim-mw/1.0.0.7.2/` 
+		This will install the JAR file in the local maven repo in `rmit/agtgrp/sarl/sarl-elevatorsim-mw/1.1.0.7.2/` 
 	* Refer to its web page to understand what is provided to connect your agents to the simulator and interact with it.
 	
 * [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
 	* Capacities and skills to allow the use of SWI Prolog knowledge-bases in agents.
 	* For the SWI-Prolog based knowledgebases, please refer to [this instructions](https://bitbucket.org/snippets/ssardina/bezbBx/swi-prolog-in-sarl-agent-controllers).
+	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
 
 
 ## DESCRIPTION OF DUMMY AGENTS
@@ -41,6 +43,13 @@ Some information is reported as cars reach their destinations.
 
 In the SWI Prolog version, a Prolog fact is added to store each car arrival when event `CarArrivedPercept` is received. 
 Also, at every arrival, the Prolog knowledge-base is dumped to the file system as a file (with timestamp).
+
+The SWI Prolog version has two important files:
+
+* The initial SWI knowledgebase that the agent will load: `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
+* A capacity+skill `KB_Elevator` that encapsulates the meaningful Prolog queries for the domain: `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_Elevator.sarl`
+	* This capacity should be extended as Prolog's is used for the application. 
+
 
 ## RUNNING IT
 
