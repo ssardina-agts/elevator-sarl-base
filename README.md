@@ -36,13 +36,62 @@ Two dummy controllers, one using SWI Prolog, are provided.
 
 ## DESCRIPTION OF DUMMY AGENTS
 
-Both dummy controllers implement centralized (i.e., one agent controlls all elevator cars) control of all cars. Cars are instructed to indefinitely iteraate between the highest and lowest floor. 
+Both dummy controllers implement centralized (i.e., one agent controls all elevator cars) control of all cars. Cars are instructed to indefinitely iteraate between the highest and lowest floor. 
 Some information is reported as cars reach their destinations. 
 
 In the SWI Prolog version, a Prolog fact is added to store each car arrival when event `CarArrivedPercept` is received. 
 Also, at every arrival, the Prolog knowledge-base is dumped to the file system as a file (with timestamp).
 
+## RUNNING IT
 
+From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots
+up the desired agent:
+
+* The controller agent to boot is given as a program argument argument, for example, `DummyMultiCarController`
+* If using the SWI Prolog controller:
+	* The initial knowledgebase to load needs to be given as a VM argument using the `-Dkb=<pl file>` format.
+		* For example: `-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
+	* Under Environment tab, set the following  variables (as per instructions [here](https://bitbucket.org/snippets/ssardina/bezbBx/swi-prolog-in-sarl-agent-controllers)):
+		* Variable `LD_LIBRARY_PATH` to `/usr/lib/swi-prolog/lib/amd64/`
+		* Variable `LD_PRELOAD` to `libswipl.so`
+		
+From CLI, one should first build the system by running `mvn package`. 
+This will produce the JAR file under `target/` with all the dependencies.
+The JAR file already has `BootMAS` as the default starting class. 
+
+To run the default controller:
+
+```
+java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar
+```
+
+
+To run the `DummyMultiCarController` controller:
+
+```
+java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar DummyMultiCarController
+```
+
+To run the `DummySWIMultiCarController` controller:
+
+```
+java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController \
+	-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
+```
+
+Remember that to use SWI Prolog you need to first set the following environment variables:
+
+```
+export LD_PRELOAD=$LD_PRELOAD:libswipl.so
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/swi-prolog/lib/amd64/
+```
+
+This can be done by executing `source set-swi-env.bash`
+
+
+
+		
+		
 
 ## LINKS 
 
