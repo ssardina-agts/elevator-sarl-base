@@ -17,21 +17,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * sweeper_elevator_agent
- * Beliefs held by a Sweeper Elevator Agent in terms of which
- * open car or floor requests to handle at any one time during
- * the simulation
- */
-
-:- dynamic
-	car_arrived/3.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERIC DOMAIN INDEPENDENT TOOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% Get ISO time
 get_iso_time(T) :-
     get_time(X), 
     format_time(atom(T),'%Y-%m-%d--%H:%M:%S',X,posix).
 
+% Tool to dump/save the db on file ID 
+% (not used anymore as capability to dump already provided as built-in dump_kb(id) action in KB_Prolog capacity
 %save_db(ID) :-
 %	(var(ID) -> ID = default ; true),
 %	string_to_atom(SID, ID),
@@ -43,13 +40,18 @@ get_iso_time(T) :-
 %	close(F).
 	
 	
-	
 % Concatenate a list of strings
 strings_concat([], "").
 strings_concat([S|L], CS) :-
 	strings_concat(L, CS2),
 	string_concat(S, CS2, CS).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOMAIN DEPENDENT KNOWBLEDGEBASE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define all predicates that will be asserted/retracted dynamically
+:- dynamic
+	car_arrived/3.
 
 /**
  * direction(-Direction:atom) is semidet.
