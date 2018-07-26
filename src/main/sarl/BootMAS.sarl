@@ -1,8 +1,6 @@
 /** 
- * Class to boot up a controller 
+ * Class to boot up an agent controller
  */
-//package au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers
-
 import io.janusproject.Boot
 import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummyMultiCarController
 import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
@@ -14,10 +12,7 @@ import io.sarl.lang.core.Agent
  * 
  */
 class BootMAS {
-	// Example how to boot from name string:
-	// sarl/Boot.java at 44773331ac7b1e05b870323f0e990b597e0ebfa8 · sarl/sarl http://tinyurl.com/ycolmey5
-	
-	
+	// Code adapted from example how to boot from name string: 	http://tinyurl.com/ycolmey5
 	def static main(args : String[]) : void {
 		Boot.offline = true
 		Boot.verboseLevel = 7 //ALL
@@ -25,16 +20,20 @@ class BootMAS {
 		val basePackage = "au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers"
 
 		val AGENTS_AVAILABLE : String[] = #["DummySWIMultiCarController", "DummyMultiCarController"]
-//		val DEFAULT_CONTROLLER = "DummyMultiCarController"
-		val DEFAULT_CONTROLLER = "NONE"
-		
-		if (args.length == 0) {
-			System.out.println(String.format("No controller specified from the available ones %s. 
-													Using controler %s:", AGENTS_AVAILABLE.toString, DEFAULT_CONTROLLER))
-//			Boot.startJanus(typeof(DummyMultiCarController))
-			} 
+		val DEFAULT_CONTROLLER : String = "DummyMultiCarController"
+
+		// Boot a specific one and that' s it
+		// Boot.startJanus(typeof(DummyMultiCarController))
+		var agentToLaunch : String 
+		if (args.length == 0) {	// if not agent given in CLI argument, use default
+			System.out.println(
+				String.format("No controller specified from the available ones %s. Using controller \"%s\"",
+				AGENTS_AVAILABLE.toString, DEFAULT_CONTROLLER))
+			agentToLaunch = DEFAULT_CONTROLLER
+			fullyQualifiedAgent = basePackage + "." + agentToLaunch
+		} 
 		else {
-			val agentToLaunch : String = args.get(0)
+			agentToLaunch = args.get(0)	// get the agent name from CLI first argument
 			switch agentToLaunch {
 				case 'DummySWIMultiCarController':
 					fullyQualifiedAgent = basePackage + ".DummySWIMultiCarController"
@@ -43,15 +42,15 @@ class BootMAS {
 				default:
 				    throw new IllegalArgumentException("Invalid agent to start: " + agentToLaunch)
 		   		}
-			System.out.println(String.format("Loading SARL controller agent %s", agentToLaunch))
-			val type = Class.forName(fullyQualifiedAgent)
-			var SARLagent : Class<? extends Agent>
-			SARLagent = type.asSubclass(Agent)
-			assert SARLagent != null;
-			Boot.startJanus(SARLagent)
-			
-			
-//			Boot.startJanus(typeof(PrologSweeperBossAgent))
 		}
+		
+		// now get agent class for fullQualifiedAgent and boot it
+		System.out.println(String.format("Loading SARL controller agent %s", agentToLaunch))
+		val type = Class.forName(fullyQualifiedAgent)
+		var SARLagent : Class<? extends Agent>
+		SARLagent = type.asSubclass(Agent)
+		assert SARLagent != null;
+		Boot.startJanus(SARLagent)
 	}
+	
 }
