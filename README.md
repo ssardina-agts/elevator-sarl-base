@@ -17,6 +17,7 @@ Two dummy controllers, one using SWI Prolog, are provided.
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * SARL modules and execution engine
 	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.7.2`
+		* To make ECLIPSE see this environment variable, you may need to start it from CLI after the export: `./eclipse-sarl`
 	* Version tested: 0.6.1, 0.7.2.
 	* Obtained with Maven automatically from http://mvnrepository.com/artifact/io.sarl.maven).
 * [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw):
@@ -53,8 +54,7 @@ The SWI Prolog version has two important files:
 
 ## RUNNING IT
 
-From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots
-up the desired agent:
+From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots up the desired agent:
 
 * The controller agent to boot is given as a program argument argument, for example, `DummyMultiCarController`
 * If using the SWI Prolog controller:
@@ -98,7 +98,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/swi-prolog/lib/amd64/
 This can be done by executing `source set-swi-env.bash`
 
 
-
+Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
 		
 		
 
@@ -144,3 +144,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
