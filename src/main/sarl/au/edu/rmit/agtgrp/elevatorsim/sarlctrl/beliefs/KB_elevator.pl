@@ -25,7 +25,7 @@
 % Get ISO time
 get_iso_time(T) :-
     get_time(X), 
-    format_time(atom(T),'%Y-%m-%d--%H:%M:%S',X,posix).
+    format_time(atom(T),'%Y-%m-%d--%H-%M-%S',X,posix).
 
 % Tool to dump/save the db on file ID 
 % (not used anymore as capability to dump already provided as built-in dump_kb(id) action in KB_Prolog capacity
