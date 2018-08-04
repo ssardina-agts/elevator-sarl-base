@@ -33,7 +33,7 @@ Two dummy controllers, one using SWI Prolog, are provided.
 	
 * [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
 	* Capacities and skills to allow the use of SWI Prolog knowledge-bases in agents.
-	* For the SWI-Prolog based knowledgebases, please refer to [this instructions](https://bitbucket.org/snippets/ssardina/bezbBx/swi-prolog-in-sarl-agent-controllers).
+	* Please refer to the instructions and examples in the [capacity+skill's page](https://bitbucket.org/ssardina-research/sarl-prolog-cap) to use it in your SARL applicaiton.
 	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
 
 
