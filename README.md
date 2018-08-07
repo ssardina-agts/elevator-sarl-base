@@ -13,6 +13,7 @@ Two dummy controllers, one using SWI Prolog, are provided.
 
 * Java Runtime Environment (JRE) and Java Compiler (javac) v1.8 (use Sun version)
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
+	* Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup#markdown-header-running-using-maven) for Maven-based SARL projects.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * SARL modules and execution engine
@@ -86,6 +87,8 @@ From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which i
 From CLI, one should first build the system by running `mvn package`. 
 This will produce the JAR file under `target/` with all the dependencies.
 The JAR file already has `BootMAS` as the default starting class. 
+
+Instructions on how to setup and run Maven-based SARL applications, see [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup#markdown-header-running-using-maven)
 
 To run the default controller:
 
