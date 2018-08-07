@@ -106,6 +106,11 @@ To run the `DummySWIMultiCarController` controller:
 	java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController \
 		-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
 
+One can also run the application via Maven execution plugin:
+
+```
+mvn -o exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevarsim/sarlctrl/beliefs/KB_elevator.pl
+```
 
 Remember that, under Linux, to use SWI Prolog you need to first set the following environment variables:
 
