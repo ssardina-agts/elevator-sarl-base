@@ -13,7 +13,7 @@ Two dummy controllers, one using SWI Prolog, are provided.
 
 * Java Runtime Environment (JRE) and Java Compiler (javac) v1.8 (use Sun version)
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
-	* Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup#markdown-header-running-using-maven) for Maven-based SARL projects.
+	* Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/) for Maven-based SARL projects.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * SARL modules and execution engine
@@ -80,7 +80,7 @@ From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which i
 * If using the SWI Prolog controller:
 	* The initial knowledgebase to load needs to be given as a VM argument using the `-Dkb=<pl file>` format.
 		* For example: `-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
-	* Under Environment tab, set the following  variables (as per instructions [here](https://bitbucket.org/snippets/ssardina/bezbBx/swi-prolog-in-sarl-agent-controllers)):
+	* Under Environment tab, set the following  variables (as per instructions [here](https://bitbucket.org/snippets/ssardina/bezbBx)):
 		* Variable `LD_LIBRARY_PATH` to `/usr/lib/swi-prolog/lib/amd64/`
 		* Variable `LD_PRELOAD` to `libswipl.so`
 		
