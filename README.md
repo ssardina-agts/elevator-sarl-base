@@ -27,10 +27,10 @@ Two dummy controllers, one using SWI Prolog, are provided.
 	* JAR file can also be manually obtained from [Download](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) section (for the corresponding SARL version) and install it (see instructions below). For example:
 
 		```
-		mvn install:install-file -Dfile=sarl-elevatorsim-mw-1.1.0.7.2.jar -DgroupId=rmit.agtgrp.sarl -DartifactId=sarl-elevatorsim-mw -Dversion=1.1.0.7.2 -Dpackaging=jar
+		mvn install:install-file -Dfile=sarl-elevatorsim-mw-<version>.jar -DgroupId=rmit.agtgrp.sarl -DartifactId=sarl-elevatorsim-mw -Dversion=<version> -Dpackaging=jar
 		```
 
-		This will install the JAR file in the local maven repo in `rmit/agtgrp/sarl/sarl-elevatorsim-mw/1.1.0.7.2/` 
+		This will install the JAR file in the local maven repo in `rmit/agtgrp/sarl/sarl-elevatorsim-mw/<version>/` 
 	* Refer to its web page to understand what is provided to connect your agents to the simulator and interact with it.
 	
 * [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
@@ -93,18 +93,19 @@ Instructions on how to setup and run Maven-based SARL applications, see [this gu
 To run the default controller:
 
 ```
-java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar
+java -jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar
 ```
 
 
 To run the `DummyMultiCarController` controller:
 
-	java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar DummyMultiCarController
+	java -jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummyMultiCarController
 
 To run the `DummySWIMultiCarController` controller:
 
-	java -jar target/sarl-elevatorsim-base-1.0.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController \
-		-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
+	java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
+		-jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController
+		
 
 One can also run the application via Maven execution plugin:
 
