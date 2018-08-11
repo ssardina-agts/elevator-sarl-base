@@ -36,25 +36,8 @@ Two dummy controllers, one using SWI Prolog, are provided.
 * [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
 	* Capacity and skill to allow the use of SWI Prolog knowledge-bases in SARL agents.
 	* Relies on [Mochalog](https://github.com/ssardina/mochalog) and [JPL](https://jpl7.org/) to have Prolog access from Java.
-	* Please refer to the instructions and examples in the [capacity+skill's page](https://bitbucket.org/ssardina-research/sarl-prolog-cap) to use it in your SARL applicaiton.
 	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
-
-Also, depending on the system being used:
-
-* If in **Windows**:
-	* Tested successfully in Windows 7 with SWI 7.6.4.
-	* Make sure SWI is installed with the JPL Java-SWI connectivity.
-	* Define a _system_ environment variable `SWI_HOME_DIR` and set it to the root directory of your installed version of SWI-Prolog (e.g., to `C:\Program Files\swipl`).
-	* Extend `Path` system environment variable with: `...;%SWI_HOME_DIR%\bin;%SWI_HOME_DIR%\lib\jpl.jar`
-	* No changes to `CLASSPATH` are needed.
-* If in **Linux**:
-	* Latest package versions at <http://www.swi-prolog.org/build/PPA.txt> 
-	* JPL is provided via package `swi-prolog-java` (interface between Java and SWI) installed. This will include library `libjpl.so` (e.g., `/usr/lib/swi-prolog/lib/amd64/libjpl.so`)
-	* Extend environment library `LD_PRELOAD` for system to pre-load `libswipl.so`: `export LD_PRELOAD=libswipl.so:$LD_PRELOAD`
-		* Check [this post](https://answers.ros.org/question/132411/unable-to-load-existing-owl-in-semantic-map-editor/) and [this one](https://blog.cryptomilk.org/2014/07/21/what-is-preloading/) about library preloading.
-		* Also, check [this](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=690734) and [this](https://github.com/yuce/pyswip/issues/10) posts.
-	* Extend environment Variable `LD_LIBRARY_PATH`  to point to `libjpl.so`: `export LD_LIBRARY_PATH=/usr/lib/swi-prolog/lib/amd64/`
-	* If using RUN AS configuration in ECLIPSE, remember to set up these two variables `LD_LIBRARY_PATH` and `LD_PRELOAD` too (and check "Append environment to native environment").
+	* **IMPORTANT**: Please refer to the instructions and examples in the [capacity+skill's page](https://bitbucket.org/ssardina-research/sarl-prolog-cap) to set-up and use it in your SARL application.
 
 
 ## DESCRIPTION OF DUMMY AGENTS
