@@ -2,18 +2,19 @@
 
 This project provides a base to build [SARL](http://www.sarl.io/)-based controllers for the [Java Elevator Simulator (RMIT Version)](https://bitbucket.org/ssardina-research/elevator-sim).
 
-The project uses the [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw) to connect to and communicate with the elevator simulator via appropriate capacities/skills.
+The project relies on:
 
-It also relies on the [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) project that provides capacities and skills for SARL agents to use [SWI Prolog](http://www.swi-prolog.org/) for implementing the knowledge base of the agents. 
+1. The [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw) to connect to and communicate with the elevator simulator via appropriate capacities/skills.
+2. The [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) project that provides a capacity and a skill for SARL agents to use [SWI Prolog](http://www.swi-prolog.org/) for implementing the knowledge base of the agents. 
 
-Two dummy controllers, one using SWI Prolog, are provided.
+Two dummy controllers, one of them using SWI Prolog, are provided.
 
 
 ## PRE-REQUISITES
 
 * Java Runtime Environment (JRE) and Java Compiler (javac) v1.8 (use Sun version)
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
-	* Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/) for Maven-based SARL projects.
+	* **IMPORTANT:** Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/) for Maven-based SARL projects.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * SARL modules and execution engine
@@ -130,7 +131,3 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
-
-
