@@ -62,11 +62,10 @@ From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which i
 
 * The controller agent to boot is given as a program argument argument, for example, `DummyMultiCarController`
 * If using the SWI Prolog controller:
+	* Depending on your OS platforms (Linux or Windows), make sure you have set it up as per instructions [here](https://bitbucket.org/ssardina-research/sarl-prolog-cap)).
 	* The initial knowledgebase to load needs to be given as a VM argument using the `-Dkb=<pl file>` format.
 		* For example: `-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
-	* Under Environment tab, set the following  variables (as per instructions [here](https://bitbucket.org/snippets/ssardina/bezbBx)):
-		* Variable `LD_LIBRARY_PATH` to `/usr/lib/swi-prolog/lib/amd64/`
-		* Variable `LD_PRELOAD` to `libswipl.so`
+
 		
 From CLI, one should first build the system by running `mvn package`. 
 This will produce the JAR file under `target/` with all the dependencies.
