@@ -68,7 +68,7 @@ Also, at every arrival, the Prolog knowledge-base is dumped to the file system a
 The SWI Prolog version has two important files:
 
 * The initial SWI knowledgebase that the agent will load: `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
-* A capacity+skill `KB_Elevator` that encapsulates the meaningful Prolog queries for the domain: `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_Elevator.sarl`
+* A capacity+skill `KB_Elevator` (and a corresponding SWI-type skill) that encapsulates the meaningful Prolog queries for the domain: `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_Elevator.sarl`
 	* This capacity should be extended as Prolog's is used for the application. 
 
 
@@ -124,6 +124,10 @@ In Windows, as long as the environment variables have been correclty set up as a
 
 Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
 		
+		
+## LINKS 
+
+Check [this snippet](https://bitbucket.org/snippets/ssardina-research/qed5kE) for related useful links.
 		
 
 
