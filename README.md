@@ -9,6 +9,8 @@ The project relies on:
 
 Two dummy controllers, one of them using SWI Prolog, are provided.
 
+**IMPORTANT:** A comprehensive set of instructions how to run SARL systems can be found [here](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup)
+
 
 ## PRE-REQUISITES
 
@@ -56,22 +58,18 @@ The SWI Prolog version has two important files:
 	* This capacity should be extended as Prolog's is used for the application. 
 
 
-## RUNNING IT
+## RUNNING THE CONTROLLERS AGAINST THE SIMULATOR
 
-From ECLIPSE one can create a SARL Application by running `BootMAS.sarl` which is a standard Java class that boots up the desired agent:
+To run the controllers provided in this package, follow the following 3 steps.
 
-* The controller agent to boot is given as a program argument argument, for example, `DummyMultiCarController`
-* If using the SWI Prolog controller:
-	* Depending on your OS platforms (Linux or Windows), make sure you have set it up as per instructions [here](https://bitbucket.org/ssardina-research/sarl-prolog-cap)).
-	* The initial knowledgebase to load needs to be given as a VM argument using the `-Dkb=<pl file>` format.
-		* For example: `-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
+1. Start the [elevator simulator](https://bitbucket.org/ssardina-research/elevator-sim), either from ECLIPSE (if you have it as a project) or directly with its JAR file
+2. Navigate to *File > New*, choose a simulator scenario from the available list, choose your simulation parameters, and click *Apply*.
+3. Start SARL Controller you want to deploy.
 
-		
-From CLI, one should first build the system by running `mvn package`. 
-This will produce the JAR file under `target/` with all the dependencies.
-The JAR file already has `BootMAS` as the default starting class. 
+You can run the SARL controller, either from ECLIPSE or from CLI (via Java or Maven), please refer to [this instructions](https://bitbucket.org/snippets/ssardina/6eybMg#markdown-header-4-running-the-sarl-application).
 
-Instructions on how to setup and run Maven-based SARL applications, see [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup#markdown-header-running-using-maven)
+
+### EXAMPLES
 
 To run the default controller:
 
@@ -96,28 +94,33 @@ One can also run the application via Maven execution plugin:
 mvn -o exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevarsim/sarlctrl/beliefs/KB_elevator.pl
 ```
 
-Remember that, under Linux, to use SWI Prolog you need to first set the following environment variables:
+Remember to set-up your system and environment variables depending on your platform (Linux, Windows, etc.). 
+For Linux, for example:
+
 
 	export LD_PRELOAD=$LD_PRELOAD:libswipl.so
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/swi-prolog/lib/amd64/
 
 This can be done by executing `source set-swi-env.bash`
 
-In Windows, as long as the environment variables have been correclty set up as above, everything should work well.
+In Windows, as long as the environment variables have been correctly set up as above, everything should work well.
 
 Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
 		
 		
 ## LINKS 
 
-Check [this snippet](https://bitbucket.org/snippets/ssardina-research/qed5kE) for related useful links.
+Check [this snippet](https://bitbucket.org/snippets/ssardina/6eybMg#markdown-header-1-software-prerequisites-and-links) for related useful links.
 		
 
 
 ## PROJECT CONTRIBUTORS 
 
 * Sebastian Sardina (Project Supervisor & Contact - ssardina@gmail.com)
-
+* Matthew McNally (2017 Capstone Project Coordinator and SARL Agent Developer) 
+* Joshua Richards (Java Elevator Sim Server developer)
+* Joshua Beale (SARL Agent Developer)
+* Dylan Rock (Documentation)
 
 
 ## LICENSE 
