@@ -21,7 +21,6 @@
 % GENERIC DOMAIN INDEPENDENT TOOLS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 % Get ISO time
 get_iso_time(T) :-
     get_time(X), 

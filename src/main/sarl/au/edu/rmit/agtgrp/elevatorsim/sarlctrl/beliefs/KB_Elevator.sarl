@@ -86,16 +86,23 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 		// Query to reset active job to new job
 		// when it becomes available
 	
+		// First get the next (Destination, Direction) job to work on
+		// Once obtained:
+		//		- updated active_job/2 with such new job
+		//		- remove the Destination as an open request (since it is our job now!)
+		//		- remove the Destination-Direction open car request (since it is our job now!)
 		val nextJobQuery = "next_job(Destination, Direction),
 										active_job(_ <- Destination, _ <- Direction),
 										retractall(open_floor_request(Destination)),
 										retractall(open_car_request(Destination, Direction))"
 
+		// Keep proving nextJob query until there is a next_job/2 solution		
 		var solution : Map<String, Term>
 		do {
 			solution = askOnce(nextJobQuery, #["Destination", "Direction"])
 		} while (solution === null)
 		
+		// Now build the pair Floor-Direction from what the query returned as solution		
 		val destination = solution.get("Destination").intValue
 		val direction = Direction.getDirection(solution.get("Direction").toString)
 		val job : Pair<Integer, Direction> = new MutablePair<Integer, Direction>(destination, direction)
@@ -111,8 +118,9 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 		dump_kb()
 	}
 	
+	// return all floors that are pending to be served (i.e., have an open car request)	
 	def kb_getPendingFloors : Set<Integer> {
-		val solutions = askForAllSolutions("open_car_request(Floor, Direction)", #["Floor"])
+		val solutions = askForAllSolutions("open_car_request(Floor, Direction)")
 		
 		val set = new HashSet<Integer>
 		for (sol : solutions) {
