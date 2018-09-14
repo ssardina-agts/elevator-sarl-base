@@ -74,13 +74,11 @@ You can run the SARL controller, either from ECLIPSE or from CLI (via Java or Ma
 By default Maven produces the JAR file without dependencies as plugin `maven-assembly-plugin` is too slow to compile. 
 So, we can run the system using `exec-maven-plugin` which will run class `BootMAS` automatically and deal with all dependencies:
 
-```
-mvn -o exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/it/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
-```
+	mvn exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
 
 If we have built the jar with dependencies (by enabling in `maven-assembly-plugin`), we can do:
 
-	java -Dkb=src/main/sarl/au/edu/it/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
+	java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
 		-jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController
 		
 

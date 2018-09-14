@@ -58,8 +58,8 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 
 	val logging_level : int
 	
-	new (l : int = 0, name : String) {
-		super(name) // Call the super's constructor
+	new (l : int = 0, name : String, dump_loc : String = "kb_elev_dump") {
+		super(name, dump_loc) // Call the super's constructor
 		logging_level = l
 //		setLogLevel(l)
 	}

@@ -177,9 +177,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-	                <!-- 
-                    <mainClass>io.janusproject.Boot</mainClass>
-	                 -->
 	                <mainClass>BootMAS</mainClass>
                 </configuration>
             </plugin>
