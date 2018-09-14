@@ -45,7 +45,7 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 
 ## DESCRIPTION OF DUMMY AGENTS
 
-Both dummy controllers implement centralized (i.e., one agent controls all elevator cars) control of all cars. Cars are instructed to indefinitely iteraate between the highest and lowest floor. 
+Both dummy controllers implement centralized (i.e., one agent controls all elevator cars) control of all cars. Cars are instructed to indefinitely iterate between the highest and lowest floor. 
 Some information is reported as cars reach their destinations. 
 
 In the SWI Prolog version, a Prolog fact is added to store each car arrival when event `CarArrivedPercept` is received. 
@@ -71,28 +71,18 @@ You can run the SARL controller, either from ECLIPSE or from CLI (via Java or Ma
 
 ### EXAMPLES
 
-To run the default controller:
+By default Maven produces the JAR file without dependencies as plugin `maven-assembly-plugin` is too slow to compile. 
+So, we can run the system using `exec-maven-plugin` which will run class `BootMAS` automatically and deal with all dependencies:
 
 ```
-java -jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar
+mvn -o exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/it/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
 ```
 
+If we have built the jar with dependencies (by enabling in `maven-assembly-plugin`), we can do:
 
-To run the `DummyMultiCarController` controller:
-
-	java -jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummyMultiCarController
-
-To run the `DummySWIMultiCarController` controller:
-
-	java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
+	java -Dkb=src/main/sarl/au/edu/it/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
 		-jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController
 		
-
-One can also run the application via Maven execution plugin:
-
-```
-mvn -o exec:java -Dexec.args=DummySWIMultiCarController -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevarsim/sarlctrl/beliefs/KB_elevator.pl
-```
 
 Remember to set-up your system and environment variables depending on your platform (Linux, Windows, etc.). 
 For Linux, for example:
