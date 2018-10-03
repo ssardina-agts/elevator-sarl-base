@@ -20,18 +20,17 @@ package au.edu.rmit.agtgrp.elevatorsim.sarlctrl.beliefs
 
 import io.sarl.core.Logging
 
-import io.sarl.extras.SWI_KB_Prolog
-
 import org.apache.commons.lang3.tuple.Pair
 import org.apache.commons.lang3.tuple.MutablePair;
 
 import java.util.Map
-
-import org.jpl7.Term
-
-import au.edu.rmit.agtgrp.elevatorsim.Direction
 import java.util.Set
 import java.util.HashSet
+
+import org.jpl7.Term
+import io.sarl.extras.SWIJPL_KB_Prolog
+
+import au.edu.rmit.agtgrp.elevatorsim.Direction
 
 /** 
  * @author ssardina
@@ -53,7 +52,7 @@ capacity KB_Elevator {
 	
 }
 
-skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
+skill SWI_KB_Elevator extends SWIJPL_KB_Prolog implements KB_Elevator  {
 //	uses Logging
 
 	val logging_level : int
@@ -65,19 +64,19 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 	}
 
 	def kb_registerCarRequest(floor : int, dir : String) {
-		assertFirst("open_car_request(@I, @A)", floor, dir)
+		assertFirst("open_car_request(?, ?)", floor, dir)
 	}
 
 	def kb_unRegisterCarRequest(floor : int, dir : String) {
-		  retractAll("open_car_request(@I, @A)", floor, dir)
+		  retractAll("open_car_request(?, ?)", floor, dir)
 	}
 
 	def kb_registerFloorRequest(floor : int) {
-		assertFirst("open_floor_request(@I)", floor)
+		assertFirst("open_floor_request(?)", floor)
 	}
 
 	def kb_registerFloorArrived(car : int, floor : int, id: int) {
-		assertFirst("car_arrived(@I, @I, @I)", car, floor, id)
+		assertFirst("car_arrived(?, ?, ?)", car, floor, id)
 	}
 
 
@@ -92,14 +91,15 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 		//		- remove the Destination as an open request (since it is our job now!)
 		//		- remove the Destination-Direction open car request (since it is our job now!)
 		val nextJobQuery = "next_job(Destination, Direction),
-										active_job(_ <- Destination, _ <- Direction),
+										retractall(active_job(_,_)),
+										assert(active_job(Destination, Direction)),
 										retractall(open_floor_request(Destination)),
 										retractall(open_car_request(Destination, Direction))"
 
 		// Keep proving nextJob query until there is a next_job/2 solution		
 		var solution : Map<String, Term>
 		do {
-			solution = askOnce(nextJobQuery, #["Destination", "Direction"])
+			solution = askOnce(nextJobQuery)
 		} while (solution === null)
 		
 		// Now build the pair Floor-Direction from what the query returned as solution		
@@ -111,7 +111,7 @@ skill SWI_KB_Elevator extends SWI_KB_Prolog implements KB_Elevator  {
 	}
 
 	def kb_load(file : String) {
-		consult_file(file)
+		consult(file)
 	}
 
 	def kb_dump() {

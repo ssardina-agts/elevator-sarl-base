@@ -26,6 +26,7 @@ import au.edu.rmit.agtgrp.elevatorsim.sarlmw.events.SendCarAction
 /** 
  * @author Sebastian Sardina (ssardina@gmail.com)
  */
+@SuppressWarnings("potential_field_synchronization_problem")
 agent DummyMultiCarController {
 	uses DefaultContextInteractions, Cap_SimulatorInteraction, Cap_Reporting
 
