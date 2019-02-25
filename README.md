@@ -19,15 +19,14 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 	* **IMPORTANT:** Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/) for Maven-based SARL projects.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
-* SARL modules and execution engine
-	* Version tested: 0.6.1, 0.7.2, 0.8.2, 0.8.6
-	* Obtained with Maven automatically, check [here](http://mvnrepository.com/artifact/io.sarl.maven) 
+* [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven)
+	* Version tested: 0.6.1, 0.7.2, 0.8.2, 0.8.6.
 	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.8.6` in Linux and `set SARL_VERSION 0.8.6` in Windows.
 		* In Linux/Mac, to make ECLIPSE see this environment variable, you may need to start it from CLI after the export statement (`./eclipse-sarl` in Linux or `open /Applications/eclipse`). 
 		* In Windows, if `SARL_VERSION` is defined globally, then ECLIPSE will use it well.
 * [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw): this provides the SARL capacity and skills to talk to the elevator simulator. 
 	* Refer to the [MW capacities](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/src/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities/?at=master) to understand what is provided to connect your agents to the simulator and interact with it.
-	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). You can also [download it manually](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) and install it; for example:
+	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). You can also [download & install it manually](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) (not recommended). For example:
 
 		```
 		mvn install:install-file -Dfile=sarl-elevatorsim-mw-<version>.jar -DgroupId=org.bitbucket.ssardina-research -DartifactId=sarl-elevatorsim-mw -Dversion=<version> -Dpackaging=jar
