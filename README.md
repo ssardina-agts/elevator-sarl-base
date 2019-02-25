@@ -20,26 +20,27 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * SARL modules and execution engine
-	* Version tested: 0.6.1, 0.7.2.
-	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.7.2` in Linux and `set SARL_VERSION 0.7.2` in Windows.
-		* In Linux, to make ECLIPSE see this environment variable, you may need to start it from CLI after the export (`./eclipse-sarl`). 
-		* In Windows, if `SARL_VERSION` is defined globally, then ECLIPSE will use it well.
+	* Version tested: 0.6.1, 0.7.2, 0.8.2, 0.8.6
 	* Obtained with Maven automatically, check [here](http://mvnrepository.com/artifact/io.sarl.maven) 
-* [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw):
-	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw).
-	* JAR file can also be manually obtained from [Download](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) section (for the corresponding SARL version) and install it (see instructions below). For example:
+	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.8.6` in Linux and `set SARL_VERSION 0.8.6` in Windows.
+		* In Linux/Mac, to make ECLIPSE see this environment variable, you may need to start it from CLI after the export statement (`./eclipse-sarl` in Linux or `open /Applications/eclipse`). 
+		* In Windows, if `SARL_VERSION` is defined globally, then ECLIPSE will use it well.
+* [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw): this provides the SARL capacity and skills to talk to the elevator simulator. 
+	* Refer to the [MW capacities](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/src/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities/?at=master) to understand what is provided to connect your agents to the simulator and interact with it.
+	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). You can also [download it manually](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) and install it; for example:
 
 		```
-		mvn install:install-file -Dfile=sarl-elevatorsim-mw-<version>.jar -DgroupId=rmit.agtgrp.sarl -DartifactId=sarl-elevatorsim-mw -Dversion=<version> -Dpackaging=jar
+		mvn install:install-file -Dfile=sarl-elevatorsim-mw-<version>.jar -DgroupId=org.bitbucket.ssardina-research -DartifactId=sarl-elevatorsim-mw -Dversion=<version> -Dpackaging=jar
 		```
 
-		This will install the JAR file in the local maven repo in `rmit/agtgrp/sarl/sarl-elevatorsim-mw/<version>/` 
-	* Refer to its web page to understand what is provided to connect your agents to the simulator and interact with it.
+		This will install the JAR file in the local `~/.m2/` Maven repo in `org/bitbucket/ssardina-research/sarl-elevatorsim-mw/<version>/` 
 	
-* [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
-	* Capacity and skill to allow the use of SWI Prolog knowledge-bases in SARL agents.
-	* Relies on [Mochalog](https://github.com/ssardina/mochalog) and [JPL](https://jpl7.org/) to have Prolog access from Java.
-	* The right version (specified in the POM file) should be obtained automatically via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
+* The [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
+	* Capacity (and skill) to allow SARL agents to have Prolog knowledge-bases.
+	* Relies on [JPL](https://jpl7.org/) for the  implementation to have [SWI Prolog](http://www.swi-prolog.org/) access in agents.
+	* The right version (specified in the POM file) should be obtained automatically via [JitPack](http://jitpack.io):
+		* From Bitbucket repo (less reliable): [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
+		* From Github clone (more reliable): [JitPack](https://jitpack.io/#ssardina-sarl/sarl-prolog-cap)
 	* **IMPORTANT**: Please refer to the instructions and examples in the [capacity+skill's page](https://bitbucket.org/ssardina-research/sarl-prolog-cap) to set-up and use it in your SARL application.
 
 
