@@ -30,13 +30,11 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 	* Refer to the [MW capacities](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/src/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities/?at=master) to understand what is provided to connect your agents to the simulator and interact with it.
 	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). 
 * The [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
-	* Capacity (and skill) to allow SARL agents to have Prolog knowledge-bases.
+	* Capacity (and skill) to allow SARL agents to have Prolog knowledge-bases. Refer to instructions and examples there.
 	* Relies on [JPL](https://jpl7.org/) for the  implementation to have [SWI Prolog](http://www.swi-prolog.org/) access in agents.
 	* The right version (specified in the POM file) should be obtained automatically via [JitPack](http://jitpack.io):
 		* From Bitbucket repo (less reliable): [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-prolog-cap).
 		* From Github clone (more reliable): [JitPack](https://jitpack.io/#ssardina-sarl/sarl-prolog-cap)
-	* **IMPORTANT**: Please refer to the instructions and examples in the [capacity+skill's page](https://bitbucket.org/ssardina-research/sarl-prolog-cap) to set-up and use it in your SARL application.
-
 
 ## DESCRIPTION OF DUMMY AGENTS
 
