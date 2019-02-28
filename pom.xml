@@ -74,17 +74,14 @@
 	    	<version>2.0.${sarl.version}</version>
 		</dependency>
 
-       	<!--  SARL-PROLOG CAPACITY -->
+       	<!--  SARL-PROLOG CAPACITY/SKILL -->
         <dependency>
-			<!--  BITBUCKET VERSION - not working reliable
 		    <groupId>org.bitbucket.ssardina-research</groupId>
-		    -->
+		    <!-- 
 		    <groupId>com.github.ssardina-research</groupId>
-			<!--  BITBUCKET VERSION - not working reliable
-		    <groupId>org.bitbucket.ssardina-research</groupId>
-		    -->
-		    <artifactId>sarl-prolog-cap</artifactId>
-            <version>043ae5a</version>
+		     -->
+		     <artifactId>sarl-prolog-cap</artifactId>
+            <version>3.5.0.8.6</version>
 		</dependency>
 
         
