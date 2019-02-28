@@ -85,15 +85,10 @@ In Windows, as long as the environment variables have been correctly set up as a
 Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
 		
 		
-## LINKS 
-
-Check [this snippet](https://bitbucket.org/snippets/ssardina/6eybMg#markdown-header-1-software-prerequisites-and-links) for related useful links.
-		
-
 
 ## PROJECT CONTRIBUTORS 
 
-* Sebastian Sardina (Project Supervisor & Contact - ssardina@gmail.com)
+* Sebastian Sardina (Project Supervisor, Developer & Contact - ssardina@gmail.com)
 * Matthew McNally (2017 Capstone Project Coordinator and SARL Agent Developer) 
 * Joshua Richards (Java Elevator Sim Server developer)
 * Joshua Beale (SARL Agent Developer)
