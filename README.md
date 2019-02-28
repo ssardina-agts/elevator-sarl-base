@@ -22,8 +22,7 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* A complete JAR file can be obtained in the [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
-* [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven)
-	* Version tested: 0.6.1, 0.7.2, 0.8.2, 0.8.6.
+* [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven). Last SARL version tested 0.8.6.
 	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.8.6` in Linux and `set SARL_VERSION 0.8.6` in Windows.
 		* In Linux/Mac, to make ECLIPSE see this environment variable, you may need to start it from CLI after the export statement (`./eclipse-sarl` in Linux or `open /Applications/eclipse`). 
 		* In Windows, if `SARL_VERSION` is defined globally, then ECLIPSE will use it well.
