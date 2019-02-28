@@ -13,7 +13,7 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 **IMPORTANT:** General support documentation relevant to this project are:
 
 * Instructions how to run SARL systems [here](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup)
-* FAQ for [SARL, SWI, and Maven here](https://bitbucket.org/snippets/ssardina/9er67X)
+* FAQ for SARL+SWI+Maven [here](https://bitbucket.org/snippets/ssardina/9er67X).
 
 
 ## PRE-REQUISITES
