@@ -6,19 +6,22 @@ The project relies on:
 
 1. The [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw) to connect to and communicate with the elevator simulator via appropriate capacities/skills.
 2. The [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) project that provides a capacity and a skill for SARL agents to use [SWI Prolog](http://www.swi-prolog.org/) for implementing the knowledge base of the agents. 
+	* This in turn relies on [SWI Prolog](http://swi-prolog.org) and the bidirectoinal Java-SWI [JPL framework](https://jpl7.org) 
 
 Two dummy controllers, one of them using SWI Prolog, are provided.
 
-**IMPORTANT:** A comprehensive set of instructions how to run SARL systems can be found [here](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup)
+**IMPORTANT:** General support documentation relevant to this project are:
+
+* Instructions how to run SARL systems [here](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup)
+* FAQ for [SARL, SWI, and Maven here](https://bitbucket.org/snippets/ssardina/9er67X)
 
 
 ## PRE-REQUISITES
 
 * Java Runtime Environment (JRE) and Java Compiler (javac) v1.8 (use Sun version)
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
-	* **IMPORTANT:** Check [this guide](https://bitbucket.org/snippets/ssardina/6eybMg/) for Maven-based SARL projects.
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
-	* One can get a complete JAR file from its [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
+	* A complete JAR file can be obtained in the [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
 * [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven)
 	* Version tested: 0.6.1, 0.7.2, 0.8.2, 0.8.6.
 	* Requires environment variable `SARL_VERSION` set to the SARL version used, e.g., `export SARL_VERSION=0.8.6` in Linux and `set SARL_VERSION 0.8.6` in Windows.
@@ -26,14 +29,7 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 		* In Windows, if `SARL_VERSION` is defined globally, then ECLIPSE will use it well.
 * [SARL Elevator Simulator Middleware](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw): this provides the SARL capacity and skills to talk to the elevator simulator. 
 	* Refer to the [MW capacities](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/src/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities/?at=master) to understand what is provided to connect your agents to the simulator and interact with it.
-	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). You can also [download & install it manually](https://bitbucket.org/ssardina-research/sarl-elevatorsim-mw/downloads/) (not recommended). For example:
-
-		```
-		mvn install:install-file -Dfile=sarl-elevatorsim-mw-<version>.jar -DgroupId=org.bitbucket.ssardina-research -DartifactId=sarl-elevatorsim-mw -Dversion=<version> -Dpackaging=jar
-		```
-
-		This will install the JAR file in the local `~/.m2/` Maven repo in `org/bitbucket/ssardina-research/sarl-elevatorsim-mw/<version>/` 
-	
+	* It should be obtained automatically as a Maven dependency via [JitPack](https://jitpack.io/#org.bitbucket.ssardina-research/sarl-elevatorsim-mw). 
 * The [SARL-PROLOG-CAP](https://bitbucket.org/ssardina-research/sarl-prolog-cap) capacity+skill for [SWI Prolog](http://www.swi-prolog.org/) system:
 	* Capacity (and skill) to allow SARL agents to have Prolog knowledge-bases.
 	* Relies on [JPL](https://jpl7.org/) for the  implementation to have [SWI Prolog](http://www.swi-prolog.org/) access in agents.
@@ -81,15 +77,9 @@ If we have built the jar with dependencies (by enabling in `maven-assembly-plugi
 	java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
 		-jar target/sarl-elevatorsim-base-1.2.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController
 		
-
-Remember to set-up your system and environment variables depending on your platform (Linux, Windows, etc.). 
-For Linux, for example:
-
-
-	export LD_PRELOAD=$LD_PRELOAD:libswipl.so
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/swi-prolog/lib/amd64/
-
-This can be done by executing `source set-swi-env.bash`
+Remember to set-up your system environment variables depending on your platform (Linux, Windows, etc.) to that SWI can be found.
+See [this entry](https://bitbucket.org/snippets/ssardina/9er67X#markdown-header-what-environment-variables-i-should-care-about-in-linux) in the FAQ.
+This variables can be set in script `set-env-vars.sh` and then exported as `source ./set-env-var.bash`
 
 In Windows, as long as the environment variables have been correctly set up as above, everything should work well.
 
