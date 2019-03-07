@@ -64,6 +64,11 @@ You can run the SARL controller, either from ECLIPSE or from CLI (via Java or Ma
 
 ### EXAMPLES
 
+First of all, build your application by running:
+
+	mvn clean package
+	
+This will generate corresponding JAR files under `target/`.
 By default Maven produces the JAR file without dependencies, as plugin `maven-assembly-plugin` is too slow to compile. 
 However, we can run the system using `exec-maven-plugin` via the command `exec:java`, which will run class `BootMAS` and automatically deal with all dependencies:
 
