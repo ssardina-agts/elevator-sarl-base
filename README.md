@@ -18,7 +18,7 @@ Two dummy controllers, one of them using SWI Prolog, are provided.
 
 ## PRE-REQUISITES
 
-* Java Runtime Environment (JRE) and Java Compiler (javac) v1.8 (use Sun version)
+* Java Runtime Environment (JRE) and Java Compiler (javac) v1.7/1.8 (use Sun version)
 * Maven project management and comprehension tool (to meet dependencies, compile, package, run).
 * [The Elevator Simulator Server (RMIT version)](https://bitbucket.org/ssardina-research/elevator-sim).
 	* A complete JAR file can be obtained in the [Download](https://bitbucket.org/ssardina-research/elevator-sim/downloads/) section.
