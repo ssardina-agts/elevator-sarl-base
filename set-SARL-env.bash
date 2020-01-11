@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## TO USE THIS RUN: source ./set-SARL-env.bash
+
 # For Linux-based official distribution install
 export SWI_HOME_DIR=/usr/lib/swi-prolog
 export LD_LIBRARY_PATH=$SWI_HOME_DIR/lib/x86_64-linux/:$SWI_HOME_DIR/lib/amd64/:$LD_LIBRARY_PATH

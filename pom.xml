@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>rmit.agtgrp.sarl</groupId>
-	<artifactId>sarl-elevatorsim-base</artifactId>
+	<groupId>com.github.ssardina-agts</groupId>
+	<artifactId>elevator-sim-base</artifactId>
 	<version>1.5.${env.SARL_VERSION}</version>
 
 
@@ -14,7 +14,7 @@
 	    It includes the connectivity to the simulator via the SARL Elevator Simulator Middleware and 
 	    the SWI-Prolog Capacity/Skill.
     </description>
-  	<url>https://bitbucket.org/ssardina-research/sarl-elevatorsim-base</url>
+  	<url>https://github.com/ssardina-agts/sarl-prolog-cap</url>
 
     <licenses>
 	    <license>
@@ -27,8 +27,8 @@
     	<developer>
 	      <name>Sebastian Sardina</name>
 	      <email>ssardina@gmail.com</email>
-	      <organization>ssardina-research</organization>
-	      <organizationUrl>https://bitbucket.org/ssardina-research/</organizationUrl>
+	      <organization>ssardina-agts</organization>
+	      <organizationUrl>https://github.com/ssardina-agts/</organizationUrl>
 	    </developer>
   	</developers>
 
@@ -69,17 +69,14 @@
 
         <!--  SARL Elevator Middleware -->
 		<dependency>
-		    <groupId>org.bitbucket.ssardina-research</groupId>
-		    <artifactId>sarl-elevatorsim-mw</artifactId>
+		    <groupId>com.github.ssardina-agts</groupId>
+		    <artifactId>elevator-sarl-mw</artifactId>
 	    	<version>2.0.${sarl.version}</version>
 		</dependency>
 
        	<!--  SARL-PROLOG CAPACITY/SKILL -->
         <dependency>
-		    <groupId>org.bitbucket.ssardina-research</groupId>
-		    <!-- 
-		    <groupId>com.github.ssardina-research</groupId>
-		     -->
+		    <groupId>com.github.ssardina-agts</groupId>
 		     <artifactId>sarl-prolog-cap</artifactId>
             <version>3.5.0.8.6</version>
 		</dependency>
@@ -108,7 +105,7 @@
 		REPOSITORIES 
      ####################################################################### -->
 	<repositories>
-        <!-- Janus Project kernel (contains SARL language core) -->
+        <!-- JANUS Project kernel (contains SARL language core) -->
 	  <repository>
 	    <id>io.sarl-maven</id>
 	    <name>SARL Snapshots</name>
