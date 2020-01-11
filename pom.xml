@@ -14,7 +14,7 @@
 	    It includes the connectivity to the simulator via the SARL Elevator Simulator Middleware and 
 	    the SWI-Prolog Capacity/Skill.
     </description>
-  	<url>https://github.com/ssardina-agts/sarl-prolog-cap</url>
+  	<url>https://github.com/ssardina-agts/elevator-sarl-base</url>
 
     <licenses>
 	    <license>
