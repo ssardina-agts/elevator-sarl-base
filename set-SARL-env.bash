@@ -17,4 +17,4 @@ export LD_LIBRARY_PATH=$SWI_HOME_DIR/lib/x86_64-linux/:$SWI_HOME_DIR/lib/amd64/:
 export LD_PRELOAD=libswipl.so:$LD_PRELOAD
 
 # Set SARL VERSION
-export SARL_VERSION=0.8.6
+export SARL_VERSION=0.11.0

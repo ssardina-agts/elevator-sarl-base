@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.ssardina-agts</groupId>
 	<artifactId>elevator-sarl-base</artifactId>
-	<version>1.5.${env.SARL_VERSION}</version>
+	<version>1.5.${sarl.version}</version>
 
 
     <!-- ##################################################################
@@ -38,10 +38,11 @@
      ####################################################################### -->
     <properties>
         <!-- SARL framework version and configuration -->
-        <sarl.version>${env.SARL_VERSION}</sarl.version>
+        <!--  This is the main property - change this when upgrading SARL -->
+        <sarl.version>0.11.0</sarl.version>
 
         <!-- JANUS/SRE project version -->
-        <janus.version>2.${sarl.version}</janus.version>
+        <janus.version>3.${sarl.version}</janus.version>
 
         <!-- JAVA compiler version to be used -->
         <compiler.level>1.8</compiler.level>
@@ -71,14 +72,17 @@
 		<dependency>
 		    <groupId>com.github.ssardina-agts</groupId>
 		    <artifactId>elevator-sarl-mw</artifactId>
+	    	<version>402c23aedd6a4e1c44d2f00a458a8fccca9baddf</version>
+			<!-- 
 	    	<version>2.0.${sarl.version}</version>
+	    	 -->
 		</dependency>
 
        	<!--  SARL-PROLOG CAPACITY/SKILL -->
         <dependency>
 		    <groupId>com.github.ssardina-agts</groupId>
 		     <artifactId>sarl-prolog-cap</artifactId>
-            <version>3.5.0.8.6</version>
+            <version>eb11c14a911f7443795d2addf3f4a48e6ca6aa7d</version>
 		</dependency>
 
         
@@ -93,7 +97,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>20.0</version>
+			<version>27.1-jre</version>
 		</dependency>
         
         
@@ -156,10 +160,9 @@
 
 				Commented out because it is too slow. Uncomment when you want to produce final release
 			-->
-			<!-- 
 		    <plugin>
 			    <artifactId>maven-assembly-plugin</artifactId>
-			    <version>3.1.0</version>
+			    <version>3.3.0</version>
 			    <configuration>
 			        <archive>
 			            <manifest>
@@ -181,7 +184,6 @@
 			        </execution>
 			    </executions>
 		    </plugin>
-			 -->
 
 			<!--  Class to execute via maven exec:java 
 			https://www.mojohaus.org/exec-maven-plugin/
@@ -189,6 +191,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
                 <configuration>
 	                <mainClass>BootMAS</mainClass>
                 </configuration>

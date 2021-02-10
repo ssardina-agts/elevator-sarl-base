@@ -1,7 +1,7 @@
 /** 
  * Class to boot up an agent controller
  */
-import io.janusproject.Boot
+import io.sarl.bootstrap.SRE
 
 import io.sarl.lang.core.Agent
 import java.util.Scanner
@@ -10,15 +10,20 @@ import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummyMultiCarControll
 import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
 
 /** 
- * @author Sebastian Sardina (ssardina@gmail.com)
+ * Boot an agent from Java from a set of available booting agents.
+ * If the agent to boot is provided in the CLI, then boot that agent.
+ * Otherwise, show all the available booting agents to the user and ask for the one to boot.
  * 
+ * @author Sebastian Sardina (ssardina@gmail.com)
  */
 @SuppressWarnings("potential_field_synchronization_problem")
 class BootMAS {
 	// Code adapted from example how to boot from name string: 	http://tinyurl.com/ycolmey5
 	def static main(args : String[]) : void {
-		Boot.offline = true
-		Boot.verboseLevel = 7 // ALL
+		var sre = SRE::bootstrap
+		sre.verboseLevel = 7
+//		SRE.bootstrap.verboseLevel = 7 	// 7 = ALL
+
 		val basePackage = "au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers"
 		val AGENTS_AVAILABLE : String[] = #["default", "DummySWIMultiCarController", "DummyMultiCarController"]
 				
@@ -52,12 +57,13 @@ class BootMAS {
 		var SARLagent : Class<? extends Agent>
 		SARLagent = type.asSubclass(Agent)
 		assert SARLagent !== null;
-		Boot.startJanus(SARLagent)
+		sre.startAgent(SARLagent)
 	}
 
 	/**
-	 * Given a set of options, present them with a message and ask user which one; return the option string
+	 * Given a set of options, present them with a message and ask user to select one; return the option string
 	 */
+	@SuppressWarnings("discouraged_reference")
 	static def getSelectionFromuser(message : String, options : String[]) : String {
 		System.out.println(message);
 	            for (var i = 0; i < options.size; i++) {
@@ -78,5 +84,4 @@ class BootMAS {
 		}
 		return options.get(confNum.intValue - 1)
 	}
-
 }
