@@ -3,6 +3,9 @@
 This project provides a base to build [SARL](http://www.sarl.io/)-based controllers for the [Java Elevator Simulator (RMIT Version)](https://github.com/ssardina-agts/elevator-simulator).
 
 Two dummy controllers, one of them using SWI-Prolog for knowledge-base reasoning, are provided.
+
+**Version convention**: `Major.Minor.<SARL Version>`. For example, 1.3.0.7.2 is version 1.3 for SARL 0.7.2.
+
 ## PRE-REQUISITES
 
 To run this base elevator controller application one needs:
@@ -25,12 +28,9 @@ The following  dependencies are resolved via Maven and JitPack automatically:
 
 ## VERSION MANAGEMENT
 
-The application version is set to have the form `X.Y.Z`, where:
+The version convention used is `Major.Minor.<SARL Version>`. 
 
-- `X.Y` is the version of the application itself; and 
-- `Z` is the SARL version used.
-
-For example, `2.3.0.11.0` means version `2.3` over SARL version `0.11.0`.
+For example, 1.3.0.8.6 is version 1.3 for SARL 0.8.6.
 
 To change the version of your application change the following entries in the POM:
 

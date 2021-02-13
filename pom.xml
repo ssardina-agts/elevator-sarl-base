@@ -275,8 +275,6 @@
         
 			<!--  Aggregate project into a FULL JAR package
 			https://maven.apache.org/plugins/maven-assembly-plugin/
-
-				Commented out because it is too slow. Uncomment when you want to produce final release
 			-->
 		    <plugin>
 			    <artifactId>maven-assembly-plugin</artifactId>
