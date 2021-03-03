@@ -10,16 +10,18 @@ Two dummy controllers, one of them using SWI-Prolog for knowledge-base reasoning
 
 To run this base elevator controller application one needs:
 
-* Java Runtime Environment (JRE) and Java Compiler (javac) v1.8.
-* Maven project management and comprehension tool (to meet dependencies, compile, package, run).
-* [The Elevator Simulator Server (RMIT version)](https://github.com/ssardina-agts/elevator-simulator).
+- Java Runtime Environment (JRE) and Java Compiler (javac) v1.8.
+- Maven project management and comprehension tool (to meet dependencies, compile, package, run).
+- [The Elevator Simulator Server (RMIT version)](https://github.com/ssardina-agts/elevator-simulator).
+- [SWI-Prolog](https://www.swi-prolog.org/): a state-of-the-art implementation of Prolog.
+- [JPL](https://jpl7.org/) package for SWI-Prolog: Java classes and C functions providing a bidirectional interface between Java and Prolog. 
 
 The following  dependencies are resolved via Maven and JitPack automatically:
 
-* [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven). 
-* The [SARL Elevator Simulator Middleware](https://github.com/ssardina-agts/elevator-sarl-mw), which provides the basic infrastructure, via capacities/skills, to connect to and communicate with the elevator simulator.
-  * Refer to the [MW capacities](https://github.com/ssardina-agts/elevator-sarl-mw/tree/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities) to understand what is provided to interact with the elevator simulator.
-* The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking [SWI-Prolog](http://www.swi-prolog.org/) with Java.
+- [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven). 
+- The [SARL Elevator Simulator Middleware](https://github.com/ssardina-agts/elevator-sarl-mw), which provides the basic infrastructure, via capacities/skills, to connect to and communicate with the elevator simulator.
+  - Refer to the [MW capacities](https://github.com/ssardina-agts/elevator-sarl-mw/tree/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities) to understand what is provided to interact with the elevator simulator.
+- The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking [SWI-Prolog](http://www.swi-prolog.org/) with Java.
 
 ## VERSION MANAGEMENT
 
