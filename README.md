@@ -21,11 +21,6 @@ The following  dependencies are resolved via Maven and JitPack automatically:
   * Refer to the [MW capacities](https://github.com/ssardina-agts/elevator-sarl-mw/tree/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities) to understand what is provided to interact with the elevator simulator.
 * The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking [SWI-Prolog](http://www.swi-prolog.org/) with Java.
 
-**IMPORTANT:** General support documentation relevant to this project are:
-
-* Instructions how to run SARL systems [here](https://bitbucket.org/snippets/ssardina/6eybMg/sarl-application-general-information-setup)
-* FAQ for SARL+SWI+Maven [here](https://bitbucket.org/snippets/ssardina/9er67X).
-
 ## VERSION MANAGEMENT
 
 The version convention used is `Major.Minor.<SARL Version>`. 
