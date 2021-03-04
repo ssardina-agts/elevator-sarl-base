@@ -200,7 +200,7 @@
         <dependency>
 		    <groupId>com.github.ssardina-agts</groupId>
 		     <artifactId>sarl-prolog-cap</artifactId>
-            <version>eb11c14a911f7443795d2addf3f4a48e6ca6aa7d</version>
+            <version>d1861b5</version>
 		</dependency>
 
         

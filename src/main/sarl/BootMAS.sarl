@@ -6,8 +6,8 @@ import io.sarl.bootstrap.SRE
 import io.sarl.lang.core.Agent
 import java.util.Scanner
 
-import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummyMultiCarController
-import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
+//import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummyMultiCarController
+//import au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
 
 /** 
  * Boot an agent from Java from a set of available booting agents.
