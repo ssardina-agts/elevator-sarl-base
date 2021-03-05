@@ -44,6 +44,12 @@
         <!-- JANUS/SRE project version -->
         <janus.version>3.${sarl.version}</janus.version>
 
+        <!-- elevator-sarl-mw  -->
+        <elevator-sarl-mw.version>442b8d4</elevator-sarl-mw.version>
+
+        <!-- sarl-prolog-cap  -->
+        <sarl-prolog-cap.version>57ebaa8</sarl-prolog-cap.version>
+
         <!-- JAVA compiler version to be used -->
         <compiler.level>1.8</compiler.level>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,10 +137,7 @@
 		<dependency>
 		    <groupId>com.github.ssardina-agts</groupId>
 		    <artifactId>elevator-sarl-mw</artifactId>
-	    	<version>402c23aedd6a4e1c44d2f00a458a8fccca9baddf</version>
-			<!-- 
-	    	<version>2.0.${sarl.version}</version>
-	    	 -->
+	    	<version>${elevator-sarl-mw.version}</version>
 	    	 
 			<exclusions>
               <exclusion>
@@ -200,7 +203,7 @@
         <dependency>
 		    <groupId>com.github.ssardina-agts</groupId>
 		     <artifactId>sarl-prolog-cap</artifactId>
-            <version>d1861b5</version>
+            <version>${sarl-prolog-cap.version}</version>
 		</dependency>
 
         
