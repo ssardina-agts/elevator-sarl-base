@@ -49,6 +49,10 @@
 
         <!-- sarl-prolog-cap  -->
         <sarl-prolog-cap.version>57ebaa8</sarl-prolog-cap.version>
+        
+		<!--  The main class to boot by default on exec:java -->
+		<!--  override by -Dexec.mainClass= -->
+        <exec.mainClass>BootMAS</exec.mainClass>
 
         <!-- JAVA compiler version to be used -->
         <compiler.level>1.8</compiler.level>
@@ -312,7 +316,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-	                <mainClass>BootMAS</mainClass>
+	                <mainClass>${exec.mainClass}</mainClass>
                 </configuration>
             </plugin>
 
