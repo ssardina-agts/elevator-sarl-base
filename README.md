@@ -10,24 +10,24 @@ Two dummy controllers, one of them using SWI-Prolog for knowledge-base reasoning
 
 To run this base elevator controller application one needs:
 
-- Java Runtime Environment (JRE) and Java Compiler (javac) v1.8.
+- Java Runtime Environment (JRE) and Java Compiler (`javac`) v1.8.
 - Maven project management and comprehension tool (to meet dependencies, compile, package, run).
 - [The Elevator Simulator Server (RMIT version)](https://github.com/ssardina-agts/elevator-simulator).
 - [SWI-Prolog](https://www.swi-prolog.org/): a state-of-the-art implementation of Prolog.
-- [JPL](https://jpl7.org/) package for SWI-Prolog: Java classes and C functions providing a bidirectional interface between Java and Prolog. 
+- [JPL](https://jpl7.org/) package for SWI-Prolog: Java classes and C functions providing a bidirectional interface between Java and Prolog.
 
 The following  dependencies are resolved via Maven and JitPack automatically:
 
-- [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven). 
+- [SARL modules and execution engine](http://mvnrepository.com/artifact/io.sarl.maven).
 - The [SARL Elevator Simulator Middleware](https://github.com/ssardina-agts/elevator-sarl-mw), which provides the basic infrastructure, via capacities/skills, to connect to and communicate with the elevator simulator.
   - Refer to the [MW capacities](https://github.com/ssardina-agts/elevator-sarl-mw/tree/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities) to understand what is provided to interact with the elevator simulator.
-- The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking [SWI-Prolog](http://www.swi-prolog.org/) with Java.
+- The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking Prolog with Java.
 
 ## VERSION MANAGEMENT
 
-The version convention used is `Major.Minor.<SARL Version>`. 
+The version convention used is `Major.Minor.<SARL Version>`.
 
-For example, 1.3.0.8.6 is version 1.3 for SARL 0.8.6.
+For example, 1.3.0.11.0 is version 1.3 for SARL 0.11.0.
 
 To change the version of your application change the following entries in the POM:
 
@@ -37,8 +37,8 @@ To change the version of your application change the following entries in the PO
 ## DESCRIPTION OF DUMMY AGENTS
 
 Two simple dummy controllers are provided via agents:
-* `DummyMultiCarController`: fully implemented in SARL/Java.
-* `DummySWIMultiCarController`: implemented using SARL/Java and SWI-Prolog.
+- `DummyMultiCarController`: fully implemented in SARL/Java.
+- `DummySWIMultiCarController`: implemented using SARL/Java and SWI-Prolog.
 
 Both controller agents implement a simple centralized controller for al elevator cars, that is, the agent controls all the cars in the elevator system. Under these two controllers, cars are instructed to indefinitely iterate between the highest and lowest floors. Some information is reported as cars reach their destinations.
 
@@ -46,8 +46,8 @@ In the SWI-Prolog version (agent `DummySWIMultiCarController`), a Prolog fact is
 
 The SWI-Prolog controller relies on two important files:
 
-* The initial SWI knowledge-base (loaded by the agent at the start): file `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
-* A capacity & skill `KB_Elevator` (and a corresponding SWI-type skill) that encapsulates the meaningful Prolog queries for the domain: file `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_Elevator.sarl`
+- The initial SWI knowledge-base (loaded by the agent at the start): file `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl`
+- A capacity & skill `KB_Elevator` (and a corresponding SWI-type skill) that encapsulates the meaningful Prolog queries for the domain: file `src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_Elevator.sarl`
 
 It is expected that as this base system is extended, both files will be further elaborated to account for a more expressive and powerful knowledge-base that the SARL agent (or agents) will use.
 
@@ -56,11 +56,9 @@ It is expected that as this base system is extended, both files will be further 
 To run the controllers provided in this application:
 
 1. Start the [Java-based elevator simulator](https://github.com/ssardina-agts/elevator-simulator).
-2. Navigate to _File > New_, choose a simulator scenario from the available list (usually, just "Random Rider Insertion"), change your simulation parameters (if needed), and click _Apply_. The simulator is now waiting for a connection from some controller.
+2. Navigate to **_File > New_**, choose a simulator scenario from the available list (usually, just "Random Rider Insertion"), change your simulation parameters (if needed), and click **_Apply_**. The simulator is now waiting for a connection from some controller.
 3. Start SARL Controller you want to run. The controller should connect to the simulator.
-4. Hit "Go, Dude!" in the simulator to start the simulation.
-
-You can run the SARL controller, either from the SARL ECLIPSE IDE or directly from CLI (via Java or Maven), please refer to [this instructions](https://bitbucket.org/snippets/ssardina/6eybMg#markdown-header-4-running-the-sarl-application).
+4. Hit "_Go, Dude!_" in the simulator to start the simulation.
 
 ### EXAMPLES
 
@@ -79,25 +77,43 @@ $ mvn exec:java \
 	-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
 ```
 
-which will run class `BootMAS` and pass the Prolog KB file to be used. The booting utlity will ask the user which of the available controllers to run. 
+which will run class `BootMAS` and pass the Prolog KB file by setting the property `kb` (which the agent will read and use). The booting utility will ask the user which of the available controllers to run.
 
-To run a specific controller directly use the `exec.args` option:
+We can also pass the specific agent to boot to class `BootMAS` as follows
 
 ```bash
 $ mvn exec:java -Dexec.args=DummySWIMultiCarController \
 	-Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl
 ```
 
-One can also run the system using Java and the JAR with dependencies:
+Note that if you boot the SWI-based agent and do not pass the initial knowledgebase, the agent will give an error and terminate.
+
+There are also specialized booting classes `BootMAS_Dummy` and `BootMAS_DummySWI` to directly boot the two dummy agents. For example:
+
+```bash
+mvn exec:java -Dexec.mainClass="BootMAS_DummySWI"
+```
+
+This `BootMAS_DummySWI` Java class will directly boot agent `DummySWIMultiCarController` with the Prolog knowledgebase set.
+
+Finally, one can start an agent directly using Java (i.e., without maven) via Janus' built-in agent booting class `io.sarl.sre.boot.Boot` as follows:
 
 ```bash
 $ java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
-		-jar target/elevator-sarl-base-1.2.0.7.2-jar-with-dependencies.jar DummySWIMultiCarController
+	-jar target/elevator-sarl-base-1.5.0.11.0-with-dependencies.jar \
+	io.sarl.sre.boot.Boot \
+	au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
 ```
 
-Remember to set-up your system so that SWI-Prolog and JPL is installed and found.
+This states to run Janus agent booting class  `io.sarl.sre.boot.Boot` who will, in turn, boot up the agent `au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController`.
 
-Check a video how to run the simulator and the agent [here](https://www.youtube.com/watch?v=rl7YRjPi5pc).
+Because Janus' booting class is already set as default class in the JAR, one can simply do:
+
+```bash
+$ java -Dkb=src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlctrl/beliefs/KB_elevator.pl \
+	-jar target/elevator-sarl-base-1.5.0.11.0-with-dependencies.jar \
+	au.edu.rmit.agtgrp.elevatorsim.sarlctrl.controllers.DummySWIMultiCarController
+```
 
 ## PROJECT CONTRIBUTORS 
 
