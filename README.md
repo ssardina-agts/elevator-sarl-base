@@ -1,4 +1,4 @@
-# SARL Elevator Simulator Controllers - BASE 
+# SARL Elevator Simulator Controllers - BASE
 
 This project provides a base to build [SARL](http://www.sarl.io/)-based controllers for the [Java Elevator Simulator (RMIT Version)](https://github.com/ssardina-agts/elevator-simulator).
 
@@ -10,11 +10,11 @@ Two dummy controllers, one of them using SWI-Prolog for knowledge-base reasoning
 
 To run this base elevator controller application one needs:
 
-- Java Runtime Environment (JRE) and Java Compiler (`javac`) v1.8.
+- Java SE Development Kit (JDK) Version 1.8+.
 - Maven project management and comprehension tool (to meet dependencies, compile, package, run).
 - [The Elevator Simulator Server (RMIT version)](https://github.com/ssardina-agts/elevator-simulator).
 - [SWI-Prolog](https://www.swi-prolog.org/): a state-of-the-art implementation of Prolog.
-- [JPL](https://jpl7.org/) package for SWI-Prolog: Java classes and C functions providing a bidirectional interface between Java and Prolog.
+- [JPL](https://jpl7.org/) package for SWI-Prolog: Java classes and C native functions providing a bidirectional interface between Java and Prolog.
 
 The following  dependencies are resolved via Maven and JitPack automatically:
 
@@ -23,6 +23,10 @@ The following  dependencies are resolved via Maven and JitPack automatically:
   - Refer to the [MW capacities](https://github.com/ssardina-agts/elevator-sarl-mw/tree/master/src/main/sarl/au/edu/rmit/agtgrp/elevatorsim/sarlmw/capacities) to understand what is provided to interact with the elevator simulator.
 - The [SARL-PROLOG-CAP](https://github.com/ssardina-agts/sarl-prolog-cap) framework that provides agents with the skill to use [SWI-Prolog](http://www.swi-prolog.org/) for belief maintenance & management. Such framework relies, in turn, on the [JPL](https://jpl7.org/) for linking Prolog with Java.
 
+The system has been tested under Linux Ubuntu 20.04 and Windows 10.
+
+* In Linux, Java JDK and Maven can be obtained via the package manager. For SWI-Prolog and JPL install packages `swi-prolog` and `swi-prolog-java` via this [PPA](https://www.swi-prolog.org/build/PPA.html).
+* In Windows, install Java JDK 1.8+ (make sure it is the 64-bit one), [Maven for Windows](https://maven.apache.org/guides/getting-started/windows-prerequisites.html), and [SWI-Prolog](https://www.swi-prolog.org/download/stable) with Java Interface, and make sure you add them all to your `Path` environment variable.
 ## VERSION MANAGEMENT
 
 The version convention used is `Major.Minor.<SARL Version>`.
