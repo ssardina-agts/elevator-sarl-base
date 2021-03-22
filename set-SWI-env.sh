@@ -1,6 +1,4 @@
-#!/bin/bash
-
-## TO USE THIS RUN: source ./set-SARL-env.bash
+## TO USE THIS RUN: source ./set-SW-env.bash
 
 # For Linux-based official distribution install
 export SWI_HOME_DIR=/usr/lib/swi-prolog
@@ -15,6 +13,3 @@ export LD_LIBRARY_PATH=$SWI_HOME_DIR/lib/x86_64-linux/:$SWI_HOME_DIR/lib/amd64/:
 # This is actually only needed if your execution complains because it has to be pre-loaded
 # Check https://answers.ros.org/question/132411/unable-to-load-existing-owl-in-semantic-map-editor/
 export LD_PRELOAD=libswipl.so:$LD_PRELOAD
-
-# Set SARL VERSION
-export SARL_VERSION=0.11.0
